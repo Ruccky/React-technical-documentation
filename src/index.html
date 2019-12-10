@@ -1,0 +1,776 @@
+<nav id="navbar">
+  <header>React</header>
+  <ul>
+    <li><a class="nav-link" href="#Introduction">Introduction</a></li>
+    <li><a class="nav-link" href="#The_required_skill">The required skill</a></li>
+    <li><a class="nav-link" href="#Hello_world">Hello world</a></li>
+    <li><a class="nav-link" href="#JSX">JSX</a></li>
+    <li><a class="nav-link" href="#Rendering_Elements">Rendering Elements</a></li>
+    <li><a class="nav-link" href="#Components_and_Props">Components and Props</a></li>
+    <li><a class="nav-link" href="#State_and_Lifecycle">State and Lifecycle</a></li>
+    <li><a class="nav-link" href="#Conditional_Rendering">Conditional Rendering</a></li>
+    <li><a class="nav-link" href="#Lists_and_Keys">Lists and Keys</a></li>
+    <li><a class="nav-link" href="#Forms">Forms</a></li>
+    <li><a class="nav-link" href="#Composition_vs_Inheritance">Composition vs Inheritance</a></li>
+    <li><a class="nav-link" href="#Reference">Reference</a></li>
+  </ul>
+</nav>
+<main id="main-doc">
+  <section class="main-section" id="Introduction">
+    <header>Introduction</header>
+    <article>
+      <p>
+        React is a JavaScript library for building user interfaces. React has been designed from the start for gradual adoption, and you can use as little or as much React as you need. Whether you want to get a taste of React, add some interactivity to a simple HTML page, or start a complex React-powered app; for example:
+      </p>
+      <ul>
+        <li>
+          If you’re interested in playing around with React, you can use an online code playground. Try a Hello World template on 
+          <a 
+            href="https://codepen.io/ruccky/pen/ExaYQNP"
+            target="_blank" 
+            >CodePen</a>, 
+          <a
+            href="https://codesandbox.io/s/new"
+            target="_blank"
+            >CodeSandbox</a>, or 
+          <a
+            href="https://glitch.com/edit/#!/remix/starter-react-template"
+            target="_blank"
+            >Glitch</a>. 
+        </li>
+        <li>
+          You can add React to an HTML page in one minute. You can then either gradually expand its presence, or keep it contained to a few dynamic widgets.
+        </li>
+        <li>
+          When starting a React project, a simple HTML page with script tags might still be the best option. It only takes a minute to set up!
+        </li>
+        <li>
+          As your application grows, you might want to consider a more integrated setup. There are several JavaScript toolchains for larger applications. Each of them can work with little to no configuration and lets you take full advantage of the rich React ecosystem.
+        </li>
+      </ul>
+    </article>
+  </section>
+  <section class="main-section" id="The_required_skill">
+    <header>The required skill</header>
+    <article>
+      <p>This guide assumes you have the following basic background:</p>
+      <ul>
+        <li>
+          A general understanding of the Internet and the World Wide Web (WWW).
+        </li>
+        <li>Good working knowledge of HyperText Markup Language (HTML).</li>
+        <li>
+          The React documentation assumes some familiarity with programming in the JavaScript language. You don’t have to be an expert, but it’s harder to learn both React and JavaScript at the same time.
+        </li>
+        <li>To feel more confident learning about React, check out this overview of 
+        <a 
+          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript"
+          target="_blank"
+          rel="nofollow noopener noreferrer"
+          >JavaScript</a>.
+        </li>
+      </ul>
+    </article>
+  </section>
+  <section class="main-section" id="Hello_world">
+    <header>Hello world</header>
+    <article
+      >To get started with writing React, open the
+      <a 
+      href="https://codepen.io/ruccky/pen/QWwLBRp"
+      target="_blank" 
+      >CodePen</a> and write your first "Hello world" React.<br>The smallest React example looks like this:
+      <code
+      >ReactDOM.render(
+      &lt;h1&gt;Hello, world!&lt;/h1&gt;,
+      document.getElementById('root')<br
+      >);</code>
+    </article>
+  </section>
+  <section class="main-section" id="JSX">
+    <header>JSX</header>
+      <article>
+      <p
+      >JSX or JavaScript XML, is a syntax extension to JavaScript using with React to describe what the UI should look like.</p> 
+      <ul>
+        <li
+          >JSX resembles a template language and is closer to JavaScript than HTML. 
+        </li>
+        <li
+          >React DOM uses camelCase property naming convention instead of HTML attribute names.<br>For example, <div class="key-word">class</div> becomes <div class="key-word">className</div> in JSX, and <div class="key-word">tabindex</div> becomes <div class="key-word">tabIndex</div>.
+       </li>
+        <li
+          >React embraces the fact that rendering logic is inherently coupled with other UI logic: how events are handled, how the state changes over time, and how the data is prepared for display.
+        </li> 
+        <li
+          >Instead of artificially separating technologies by putting markup and logic in separate files, React separates concerns with loosely coupled units called “components” that contain both.
+        </li>
+        <li
+          >By default, React DOM escapes any values embedded in JSX before rendering them. Everything is converted to a string before being rendered. This helps prevent XSS (cross-site-scripting) attacks.
+      </li>
+      <li
+        >TypeScript is a typed superset of JavaScript that compiles to plain JavaScript. TypeScript compiles to clean, simple JavaScript code which runs on any browser, in Node.js, or in any JavaScript engine that supports ECMAScript 3 (or newer).
+      </li>
+        <li
+          >React doesn’t require using JSX, but most people find it helpful as a visual aid when working with UI inside the JavaScript code. It also allows React to show more useful error and warning messages.
+        </li>
+      </ul>
+      <p>
+        <div
+          >You can put any valid JavaScript expression inside the curly braces in JSX. For example, <div class="key-word">2 + 2, user.firstName</div>, or <div class="key-word">formatName(user)</div> are all valid JavaScript expressions.
+          In the example below, we embed the result of calling a JavaScript function, <div class="key-word">formatName(user)</div>, into an &lt;h1&gt; element:
+        </div>
+      </p>
+      <code
+        >function formatName(user) {<br
+        > return user.firstName + ' ' + user.lastName;<br
+        >}<br
+        >const user = {<br
+        > firstName: 'Warren',<br
+        > lastName: 'Buffet'<br
+        >};<br
+        >const element = (<br
+        > &lt;h1&gt;<br
+        >  Hello, {formatName(user)}!<br
+        > &lt;/h1&gt;<br
+        >);<br
+        >ReactDOM.render(<br
+        > element,<br
+        > document.getElementById('root')<br
+        >);</code>
+      <div class="code-link">View the result 
+        <a 
+          href="https://codepen.io/ruccky/pen/abzojrR"
+          target="_blank"
+        >here</a>.
+      </div>
+    </article>
+  </section>
+  <section class="main-section" id="Rendering_Elements">
+    <header>Rendering Elements</header>
+    <article>
+      <p
+        >Elements are what components are “made of”. Unlike browser DOM elements, React elements are plain objects, and are cheap to create. React DOM takes care of updating the DOM to match the React elements.</p>
+      <p
+        >Applications built with just React usually have a single root DOM node. If you are integrating React into an existing app, you may have as many isolated root DOM nodes as you like. In the example below, we have a single root:</p>
+      <code
+          >&lt;div id="root"&gt;&lt;/div&gt;</code>
+      <p>
+        <div
+          >Pass both to <div class="key-word">ReactDOM.render()</div> to render a React element into a root DOM node:
+        </div>
+      </p>
+      <code
+          >const element = &lt;h1&gt;Hello, world&lt;/h1&gt;;<br
+          >ReactDOM.render(element, document.getElementById('root'));</code>
+      <div class="code-link">View the result 
+        <a 
+          href="https://codepen.io/ruccky/pen/rNaBbyq"
+          target="_blank"
+        >here</a>.
+      </div>
+      <p>
+        <div
+          >An element is like a single frame in a movie: it represents the UI at a certain point in time.Once you create an element, you can’t change its children or attributes. With our knowledge so far, the only way to update the UI is to create a new element, and pass it to <div class="key-word">ReactDOM.render()</div>. In the example below, we have a clock. It calls <div class="key-word">ReactDOM.render ()</div> every second of a <div class="key-word">setInterval ()</div> callback:
+        </div>
+      </p>
+      <code
+          >function tick() {<br
+          > const element = (<br
+          >   &lt;div&gt;<br
+          >     &lt;h1&gt;Hello, React!&lt;/h1&gt;<br
+          >     &lt;h2&gt;It is {new Date().toLocaleTimeString()}.&lt;/h2&gt;<br
+          >   &lt;/div&gt;<br
+          > );<br
+          > ReactDOM.render(element, document.getElementById('root'));<br
+          >}<br
+          >setInterval(tick, 1000);</code>
+      <div class="code-link">View the result 
+        <a 
+          href="https://codepen.io/ruccky/pen/eYmOojb"
+          target="_blank"
+        >here</a>.
+      </div>
+      <p
+        >Even though we create an element describing the whole UI tree on every tick, only the text node whose contents has changed gets updated by React DOM.</p>
+    </article>
+  </section>
+  <section class="main-section" id="Components_and_Props">
+    <header>Components and Props</header>
+    <article>
+      <p
+        >Conceptually, components are like JavaScript functions. They accept arbitrary inputs (called “props”) and return React elements describing what should appear on the screen.
+      </p>
+      <p
+        >A valid React component accept a single "props" object argument (meaning properties) with data and returns a React element. We call these components "functional components" because they are literally JavaScript functions.<br
+          >In the example below, we have a single function JavaScript:</p>
+      <code
+        >function Welcome(props) {<br
+        >  return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;;<br
+        >}</code>
+      <p
+        >Using an ES6 class to define a component is equivalent to a JavaScript function from React's point of view:</p>
+      <code
+        >class Welcome extends React.Component {<br
+        > render() {<br
+        >   return &lt;h1&gt;Hello, {this.props.name}&lt;/h1&gt;;<br
+        > }<br
+        >}</code>
+      <p>
+       <div
+          >React treats components starting with lowercase letters as DOM tags. For example, &lt;div/&gt; represents an HTML div tag, but <div class="key-word">&lt;Welcome/&gt;</div> represents a component and requires Welcome to be in scope. When a React element that represents a user-defined component, passes JSX attributes to that component as a single object. We call this object "props". In the example below, this code renders "Hello Warren" on the page:
+        </div>
+      </p>
+      <code
+        >function Welcome(props) {<br
+        >     return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;;<br
+        >}<br
+        >const element = &lt;Welcome name="Warren" /&gt;;<br
+        >ReactDOM.render(<br
+        >   element,<br
+        >   document.getElementById('root')<br
+        >);</code>
+      <div class="code-link">View the result 
+        <a 
+          href="https://codepen.io/ruccky/pen/vYEBwyJ"
+          target="_blank"
+        >here</a>.
+      </div>
+      <p
+        >Divide the components into smaller components. The component can be difficult to change due to all nesting and it is also difficult to reuse individual parts of it.
+        It seems like a tricky job at first, but having a palette of reusable components pays off in larger apps.
+      </p>
+      <code
+          >function formatDate(date) {<br
+          >  return date.toLocaleDateString();<br
+          >}<br
+          >function Avatar(props) {<br
+          >  return (<br
+          >    &lt;img<br
+          >      className="Avatar"<br
+          >      src={props.user.avatarUrl}<br
+          >      alt={props.user.name}<br
+          >    /&gt;<br
+          >  );<br
+          >}<br
+          >function UserInfo(props) {<br
+          >  return (<br
+          >    &lt;div className="UserInfo"&gt;<br
+          >      &lt;Avatar user={props.user} /&gt;<br
+          >      &lt;div className="UserInfo-name"&gt;{props.user.name}&lt;/div&gt;<br
+          >    &lt;/div&gt;<br
+          >  );<br
+          >}<br
+          >function Comment(props) {<br
+          >  return (<br
+          >    &lt;div className="Comment"&gt;<br
+          >      &lt;UserInfo user={props.author} /&gt;<br
+          >      &lt;div className="Comment-text"&gt;{props.text}&lt;/div&gt;<br
+          >      &lt;div className="Comment-date"&gt;<br
+          >        {formatDate(props.date)}<br
+          >      &lt;/div&gt;<br
+          >    &lt;/div&gt;<br
+          >  );<br
+          >}<br
+          >const comment = {<br
+          >  date: new Date(),<br
+          >  text: 'I hope you enjoy learning React!',<br
+          >  author: {<br
+          >    name: 'Hello Warren',<br
+          >    avatarUrl: 'https://upload.wikimedia.org/wikipedia/<br
+          >commons/thumb/5/51/Warren_Buffett_KU_Visit.jpg/<br
+          >800px-Warren_Buffett_KU_Visit.jpg',<br
+          >  },<br
+          >};<br
+          >ReactDOM.render(<br
+          >  &lt;Comment<br
+          >    date={comment.date}<br
+          >    text={comment.text}<br
+          >    author={comment.author}<br
+          >  /&gt;,<br
+          >  document.getElementById('root')<br
+          >);</code
+        >
+        <div class="code-link">View the result 
+          <a 
+            href="https://codepen.io/ruccky/pen/qBEWzqo"
+            target="_blank"
+          >here</a>.
+        </div>
+      <p>
+        <div
+          >A good rule of thumb is that if a part of your user interface is used multiple times (<div class="key-word">button</div>, <div class="key-word">panel</div>, <div class="key-word">avatar</div>) or is complex enough by itself (<div class="key-word">application</div>, <div class="key-word">feedstory</div>, <div class="key-word">comment</div>), it is a good candidate to be a reusable component.
+        </div>
+      </p>
+      <p
+        >All React components must act like pure functions with respect to their props. Such functions are called “pure” because they do not attempt to change their inputs, and always return the same result for the same inputs.<br
+          >In the example below, the code try to change the input itself:</p>
+        <code
+          >function withdraw(account, amount) {<br
+          >   account.total -= amount;<br
+          >}</code>
+    </article>
+  </section>
+  <section class="main-section" id="State_and_Lifecycle">
+    <header>State and Lifecycle</header>
+    <article>
+      <p
+        >State is similar to props, but it is private and fully controlled by the component. To use additional features such as local state and lifecycle methods, we can convert a function component to a class. 
+      </p>
+      <p>
+        <div
+          >We need to add “state” to the Clock component, so the Clock component truly reusable and encapsulated. It will set up its own timer and update itself every second. The render method will be called each time an update happens, but as long as we render <div class="key-word">&lt;Clock /&gt;</div> into the same DOM node, only a single instance of the Clock class will be used. The Clock in below is now defined as a class rather than a function:
+        </div>
+      </p>
+      <code
+        >class Clock extends React.Component {<br
+        >  render() {<br
+        >    return (<br
+        >      &lt;div&gt;<br
+        >        &lt;h1&gt;Hello, Warren!&lt;/h1&gt;<br
+        >        &lt;h2&gt;It is {this.props.date.toLocaleTimeString()}.&lt;/h2&gt;<br
+        >      &lt;/div&gt;<br
+        >    );<br
+        >  }<br
+        >}<br
+        >function tick() {<br
+        >  ReactDOM.render(<br
+        >    &lt;Clock date={new Date()} /&gt;,<br
+        >    document.getElementById('root')<br
+        >  );<br
+        >}<br
+        >setInterval(tick, 1000);</code>
+        <div class="code-link">View the result 
+          <a 
+            href="https://codepen.io/ruccky/pen/JjojPgy"
+            target="_blank"
+          >here</a>.
+        </div>
+      <p
+        >Lifecycle methods are special methods declared in the component class to execute some code when a component is assembled and disassembled. 
+      </p>
+      <p
+        >In applications with many components, it’s very important to free up resources taken by the components when they are destroyed. We want to set up a timer whenever the Clock is rendered to the DOM for the first time. This is called “mounting” in React. We also want to clear that timer whenever the DOM produced by the Clock is removed. This is called “unmounting” in React.
+      </p>
+      <code
+          >class Clock extends React.Component {<br
+          >  constructor(props) {<br
+          >    super(props);<br
+          >    this.state = {date: new Date()};<br
+          >  }<br
+          >  componentDidMount() {<br
+          >    this.timerID = setInterval(<br
+          >      () =&gt; this.tick(),<br
+          >      1000<br
+          >    );<br
+          >  }<br
+          >  componentWillUnmount() {<br
+          >    clearInterval(this.timerID);<br
+          >  }<br
+          >  tick() {<br
+          >    this.setState({<br
+          >      date: new Date()<br
+          >    });<br
+          >  }<br
+          >  render() {<br
+          >    return (<br
+          >      &lt;div&gt;<br
+          >        &lt;h1&gt;Hello, world!&lt;/h1&gt;<br
+          >        &lt;h2&gt;It is {this.state.date.toLocaleTimeString()}.&lt;/h2&gt;<br
+          >      &lt;/div&gt;<br
+          >    );<br
+          >  }<br
+          >}<br
+          >ReactDOM.render(<br
+          >  &lt;Clock /&gt;,<br
+          >  document.getElementById('root')<br
+          >);</code>
+      <div class="code-link">View the result 
+        <a 
+          href="https://codepen.io/ruccky/pen/XWJWPwG"
+          target="_blank"
+          >here</a>.
+      </div>
+        <ol>
+          <li
+            >When <div class="key-word">&lt;Clock /&gt;</div> is passed to <div class="key-word">ReactDOM.render()</div>, React calls the constructor of the Clock component. Since Clock needs to display the current time, it initializes this.state with an object including the current time. We will later update this state.  
+          </li>
+          <li
+            >React then calls the Clock component’s <div class="key-word">render()</div> method. This is how React learns what should be displayed on the screen. React then updates the DOM to match the Clock’s render output.  
+          </li>
+          <li
+            >When the Clock output is inserted in the DOM, React calls the <div class="key-word">componentDidMount()</div> lifecycle method. Inside it, the Clock component asks the browser to set up a timer to call the component’s <div class="key-word">tick()</div> method once a second. 
+          </li>
+          <li
+            >Every second the browser calls the <div class="key-word">tick()</div> method. Inside it, the Clock component schedules a UI update by calling <div class="key-word">setState()</div> with an object containing the current time. Thanks to the <div class="key-word">setState()</div> call, React knows the state has changed, and calls the <div class="key-word">render()</div> method again to learn what should be on the screen. This time, this.state.date in the <div class="key-word">render()</div> method will be different, and so the render output will include the updated time. React updates the DOM accordingly.    
+          </li>
+          <li
+            >If the Clock component is ever removed from the DOM, React calls the <div class="key-word">componentWillUnmount()</div> lifecycle method so the timer is stopped.
+          </li>
+        </ol>
+        <p>
+          <div
+            >To use state correctly, there are three things you should know about <div class="key-word">setState ()</div>:
+          </div>
+        </p>
+      <ul>
+        <li
+          >The only place you can assign this.state is the constructor. Do not modify the state directly, as this may cause re-render a component incorrectly, use <div class="key-word">setState ()</div>.</li>
+        <li
+          >React may batch multiple <div class="key-word">setState()</div> calls into a single update for performance. Because the constructor this.state may be updated asynchronously, use a second form of <div class="key-word">setState()</div> that accepts a function rather than an object. For example <div class="key-word">setState((state))</div>.</li>
+        <li
+        >When you call <div class="key-word">setState()</div>, React merges the object you provide into the current state.</li>
+      </ul>
+      <p
+        >In a “top-down” or “unidirectional” data flow, any state is always owned by some specific component, and any data or UI derived from that state can only affect components “below” them in the tree. Neither parent nor child components can know if a certain component is stateful or stateless, and they shouldn’t care whether it is defined as a function or a class. This is why state is often called local or encapsulated. It is not accessible to any component other than the one that owns and sets it.</p>
+    </article>
+  </section>
+  <section class="main-section" id="Conditional_Rendering">
+    <header>Conditional Rendering</header>
+    <article>
+      <p
+        >In React, you can create distinct components that encapsulate the required behavior, and you can choose to render only a few of them through conditional rendering. Conditional rendering in React works the same way conditions work in JavaScript. Use JavaScript operators like if or the conditional operator to create elements that represent the current state and let React update the user interface to match them.
+      </p>
+      <p>
+        <div
+          >You can use variables to store elements. This can help you conditionally process a part of the component while the rest of the output does not change. In the example below, a stateful component called <div class="key-word">LoginControl</div> was created that will render <div class="key-word">&lt;LoginButton/&gt;</div> or <div class="key-word">&lt;LogoutButton/&gt;</div>, depending on its current state:
+        </div>
+      </p>
+      <code
+          >class LoginControl extends React.Component {<br
+          >  constructor(props) {<br
+          >    super(props);<br
+          >    this.handleLoginClick = this.handleLoginClick.bind(this);<br
+          >    this.handleLogoutClick = this.handleLogoutClick.bind(this);<br
+          >    this.state = {isLoggedIn: false};<br
+          >  }<br
+          >  handleLoginClick() {<br
+          >    this.setState({isLoggedIn: true});<br
+          >  }<br
+          >  handleLogoutClick() {<br
+          >    this.setState({isLoggedIn: false});<br
+          >  }<br
+          >  render() {<br
+          >    const isLoggedIn = this.state.isLoggedIn;<br
+          >    let button;<br
+          >    if (isLoggedIn) {<br
+          >      button = &lt;LogoutButton onClick={this.handleLogoutClick} /&gt;;<br
+          >    } else {<br
+          >      button = &lt;LoginButton onClick={this.handleLoginClick} /&gt;;<br
+          >    }<br
+          >    return (<br
+          >      &lt;div&gt;<br
+          >        &lt;Greeting isLoggedIn={isLoggedIn} /&gt;<br
+          >        {button}<br
+          >      &lt;/div&gt;<br
+          >    );<br
+          >  }<br
+          >}<br
+          >function UserGreeting(props) {<br
+          >  return &lt;h1&gt;Welcome back!&lt;/h1&gt;;<br
+          >}<br
+          >function GuestGreeting(props) {<br
+          >  return &lt;h1&gt;Please sign up.&lt;/h1&gt;;<br
+          >}<br
+          >function Greeting(props) {<br
+          >  const isLoggedIn = props.isLoggedIn;<br
+          >  if (isLoggedIn) {<br
+          >    return &lt;UserGreeting /&gt;;<br
+          >  }<br
+          >  return &lt;GuestGreeting /&gt;;<br
+          >}<br
+          >function LoginButton(props) {<br
+          >  return (<br
+          >    &lt;button onClick={props.onClick}&gt;<br
+          >      Login<br
+          >    &lt;/button&gt;<br
+          >  );<br
+          >}<br
+          >function LogoutButton(props) {<br
+          >  return (<br
+          >    &lt;button onClick={props.onClick}&gt;<br
+          >      Logout<br
+          >    &lt;/button&gt;<br
+          >  );<br
+          >}<br
+          >ReactDOM.render(<br
+          >  &lt;LoginControl /&gt;,<br
+          >  document.getElementById('root')<br
+          >);</code>
+      <div class="code-link">View the result 
+        <a 
+          href="https://codepen.io/ruccky/pen/zYxvJjE"
+          target="_blank"
+          >here</a>.
+      </div>
+      <p
+        >Whenever these conditions become too complex, it may be a good time to extract a component. Just like in JavaScript, it is up to you to choose an appropriate style based on what you and your team consider more readable.
+      </p>   
+    </article>
+  </section>
+  <section class="main-section" id="Lists_and_Keys">
+    <header>Lists and Keys</header>
+    <article>
+      <p
+        >In React, turning arrays into lists of elements is almost identical to how you turn lists into JavaScript. Usually you render lists within a component.
+        In the example below, a component accepts an array of numbers and generates a list of elements:
+      </p>
+      <code
+          >function NumberList(props) {<br
+          >  const numbers = props.numbers;<br
+          >  const listItems = numbers.map((number) =&gt;<br
+          >    &lt;li key={number.toString()}&gt;<br
+          >      {number}<br
+          >    &lt;/li&gt;<br
+          >  );<br
+          >  return (<br
+          >    &lt;ul&gt;{listItems}&lt;/ul&gt;<br
+          >  );<br
+          >}<br
+          >const numbers = [1, 2, 3, 4, 5];<br
+          >ReactDOM.render(<br
+          >  &lt;NumberList numbers={numbers} /&gt;,<br
+          >  document.getElementById('root')<br
+          >);</code>
+      <div class="code-link">View the result 
+        <a 
+          href="https://codepen.io/ruccky/pen/ZEYbqJo"
+          target="_blank"
+          >here</a>.
+      </div>
+      <p
+        >Keys help React identify which items have changed, are added, or are removed. Using a string that uniquely identifies a list item among its siblings is the best way to choose a key. Do you often would use IDs from your data as keys. When you don’t have stable IDs for rendered items, you may use the item index as a key as a last resort. Using indexes as key is not recommended, because the order of items can change and adversely affect performance and cause problems with component state.
+      </p>
+      <p>
+        <div
+          >Keys used within arrays should be unique among their siblings. However they don’t need to be globally unique. We can use the same keys when we produce two different arrays:
+        </div>
+      </p>
+      <code
+          >function Blog(props) {<br
+          >  const sidebar = (<br
+          >    &lt;ul&gt;<br
+          >      {props.posts.map((post) =&gt;<br
+          >        &lt;li key={post.id}&gt;<br
+          >          {post.title}<br
+          >        &lt;/li&gt;<br
+          >      )}<br
+          >    &lt;/ul&gt;<br
+          >  );<br
+          >  const content = props.posts.map((post) =&gt;<br
+          >    &lt;div key={post.id}&gt;<br
+          >      &lt;h3&gt;{post.title}&lt;/h3&gt;<br
+          >      &lt;p&gt;{post.content}&lt;/p&gt;<br
+          >    &lt;/div&gt;<br
+          >  );<br
+          >  return (<br
+          >    &lt;div&gt;<br
+          >      {sidebar}<br
+          >      &lt;hr /&gt;<br
+          >      {content}<br
+          >    &lt;/div&gt;<br
+          >  );<br
+          >}<br
+          >const posts = [<br
+          >  {id: 1, title: 'Hello Warren', content: 'Welcome to learning React!'},<br
+          >  {id: 2, title: 'Installation', content: 'You can install React from npm and make money.'}<br
+          >];<br
+          >ReactDOM.render(<br
+          >  &lt;Blog posts={posts} /&gt;,<br
+          >  document.getElementById('root')<br
+          >);</code> 
+      <div class="code-link">View the result 
+        <a 
+          href="https://codepen.io/ruccky/pen/MWYaPdP"
+          target="_blank"
+          >here</a>.
+      </div>
+    </article>
+  </section>
+  <section class="main-section" id="Forms">
+    <header>Forms</header>
+    <article>
+      <p>
+        <div
+          >In HTML, form elements such as <div class="key-word">&lt;input&gt;</div>, <div class="key-word">&lt;textarea&gt;</div>, and <div class="key-word">&lt;select&gt;</div> typically maintain their own state and update it based on user input. In React, mutable state is typically kept in the state property of components, and only updated with <div class="key-word">setState()</div>. We can have a the React component that renders a form also controls what happens in that form on subsequent user input. An input form element whose <div class="key-word">value</div> is controlled by React in this way is called a “controlled component”.
+        </div>
+      </p>
+      <p>
+        <div
+          >With a controlled component, every state mutation will have an associated handler function. This makes it straightforward to modify or validate user input. In example below, since the value attribute is set on our form element, the displayed value will always be <div class="key-word">this.state.value</div>, making the React state the source of truth. Since <div class="key-word">handleChange</div> runs on every keystroke to update the React state, the displayed value will update as the user types:
+        </div>
+      </p>
+      <code
+          >class NameForm extends React.Component {<br
+          >  constructor(props) {<br
+          >    super(props);<br
+          >    this.state = {value: ''};<br
+          >    this.handleChange = this.handleChange.bind(this);<br
+          >    this.handleSubmit = this.handleSubmit.bind(this);<br
+          >  }<br
+          >  handleChange(event) {<br
+          >    this.setState({value: event.target.value.toUpperCase()});<br
+          >  }<br
+          >  handleSubmit(event) {<br
+          >    alert(this.state.value + ' IS A "GOOD DEVELOPER!"');<br
+          >    event.preventDefault();<br
+          >  }<br
+          >  render() {<br
+          >    return (<br
+          >      &lt;form onSubmit={this.handleSubmit}&gt;<br
+          >        &lt;label&gt;<br
+          >          Name:<br
+          >          &lt;input type="text" value={this.state.value} onChange={this.handleChange} /&gt;<br
+          >        &lt;/label&gt;<br
+          >        &lt;input type="submit" value="Submit" /&gt;<br
+          >      &lt;/form&gt;<br
+          >    );<br
+          >  }<br
+          >}<br
+          >ReactDOM.render(<br
+          >  &lt;NameForm /&gt;,<br
+          >  document.getElementById('root')<br
+          >);</code>
+      <div class="code-link">View the result 
+        <a 
+          href="https://codepen.io/ruccky/pen/GRgpwWv"
+          target="_blank"
+          >here</a>.
+      </div>
+      <p>
+        <div
+          >React creates a drop-down list and uses a value attribute for an option to be initially selected. React, instead of using this selected attribute, uses a value attribute on the root select tag. This is more convenient in a controlled component because you only need to update it in one place. The tags <div class="key-word">&lt;input type="text"&gt;</div>, <div class="key-word">&lt;textarea&gt;</div>, and <div class="key-word">&lt;select&gt;</div> all work very similarly, they all accept a value attribute that you can use to implement a controlled component.
+        </div>
+      </p>
+      <code
+          >class InvestmentForm extends React.Component {<br
+          >  constructor(props) {<br
+          >    super(props);<br
+          >    this.state = {value: 'Stocks'};<br
+          >    this.handleChange = this.handleChange.bind(this);<br
+          >    this.handleSubmit = this.handleSubmit.bind(this);<br
+          >  }<br
+          >  handleChange(event) {<br
+          >    this.setState({value: event.target.value});<br
+          >  }<br
+          >  handleSubmit(event) {<br
+          >    alert('Your favorite investment is ' + this.state.value);<br
+          >    event.preventDefault();<br
+          >  }<br
+          >  render() {<br
+          >    return (<br
+          >      &lt;form onSubmit={this.handleSubmit}&gt;<br
+          >        &lt;label&gt;<br
+          >          Pick your favorite investment:<br
+          >          &lt;div class="grid-control"&gt;<br
+          >              &lt;select class="form-control" value={this.state.value} onChange={this.handleChange}&gt;<br
+          >                &lt;option value="Bonds"&gt;Bonds&lt;/option&gt;<br
+          >                &lt;option value="Bills"&gt;Bills&lt;/option&gt;<br
+          >                &lt;option value="Gold"&gt;Gold&lt;/option&gt;<br
+          >                &lt;option value="Stocks"&gt;Stocks&lt;/option&gt;<br
+          >                &lt;option value="Dollar"&gt;Dollar&lt;/option&gt;<br
+          >              &lt;/select&gt;<br
+          >              &lt;input type="submit" value="Submit" /&gt;<br
+          >           &lt;/div&gt;<br
+          >        &lt;/label&gt;<br
+          >      &lt;/form&gt;<br
+          >    );<br
+          >  }<br
+          >}<br
+          >ReactDOM.render(<br
+          >  &lt;InvestmentForm /&gt;,<br
+          >  document.getElementById('root')<br
+          >);</code>
+      <div class="code-link">View the result 
+        <a 
+          href="https://codepen.io/ruccky/pen/gObaZey"
+          target="_blank"
+          >here</a>.
+      </div>
+    </article>
+  </section>
+  <section class="main-section" id="Composition_vs_Inheritance">
+    <header>Composition vs Inheritance</header>
+    <article>
+      <p
+        >Props and composition give you all the flexibility you need to customize a component’s look and behavior in an explicit and safe way. React has a powerful composition model, and is recommend using composition instead of inheritance to reuse code between components. 
+      </p>
+      <p
+        >Remember that components may accept arbitrary props, including primitive values, React elements, or functions. If you want to reuse non-UI functionality between components, is suggest extracting it into a separate JavaScript module. The components may import it and use that function, object, or a class, without extending it:
+        </p>
+      <code
+          >function FancyBorder(props) {<br
+          >  return (<br
+          >    &lt;div className={'FancyBorder FancyBorder-' + props.color}&gt;<br
+          >      {props.children}<br
+          >    &lt;/div&gt;<br
+          >  );<br
+          >}<br
+          >function Dialog(props) {<br
+          >  return (<br
+          >    &lt;FancyBorder color="blue"&gt;<br
+          >      &lt;h1 className="Dialog-title"&gt;<br
+          >        {props.title}<br
+          >      &lt;/h1&gt;<br
+          >      &lt;p className="Dialog-message"&gt;<br
+          >        {props.message}<br
+          >      &lt;/p&gt;<br
+          >      {props.children}<br
+          >    &lt;/FancyBorder&gt;<br
+          >  );<br
+          >}<br
+          >class SignUpDialog extends React.Component {<br
+          >  constructor(props) {<br
+          >    super(props);<br
+          >    this.handleChange = this.handleChange.bind(this);<br
+          >    this.handleSignUp = this.handleSignUp.bind(this);<br
+          >    this.state = {login: ''};<br
+          >  }<br
+          >  render() {<br
+          >    return (<br
+          >      &lt;Dialog title="Financial Independence"<br
+          >              message="Whats is your name?"&gt;<br
+          >      &lt;div class="grid-control"&gt;<br
+          >        &lt;input placeholder="Enter your first name" value={this.state.login}<br
+          >               onChange={this.handleChange} /&gt;<br
+          >        &lt;button onClick={this.handleSignUp}&gt;Sign Now<br
+          >        &lt;/button&gt;<br
+          >      &lt;/div&gt;<br
+          >      &lt;/Dialog&gt;<br
+          >    );<br
+          >  }<br
+          >  handleChange(e) {<br
+          >    this.setState({login: e.target.value});<br
+          >  }<br
+          >  handleSignUp() {<br
+          >    alert(`${this.state.login} will be rich in 7 years!`);<br
+          >  }<br
+          >}<br
+          >ReactDOM.render(<br
+          >  &lt;SignUpDialog /&gt;,<br
+          >  document.getElementById('root')<br
+          >);</code>
+      <div class="code-link">View the result 
+        <a 
+          href="https://codepen.io/ruccky/pen/wvBKNBM"
+          target="_blank"
+          >here</a>.
+      </div>
+      <p
+        >Composition works equally well for components defined as classes. At Facebook, is used React in thousands of components, and not be found any use cases where are recommend creating component inheritance hierarchies.</p>
+    </article>
+  </section>
+  <section class="main-section" id="Reference">
+    <header>Reference</header>
+    <article>
+      <footer>
+          All the documentation in this page is taken from
+          <a
+            href="https://reactjs.org/docs/getting-started.html"
+            target="_blank"
+            >reactjs.org</a
+          >.
+      </footer>
+    </article>
+  </section>
+</main>
